@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 Plugin Name: Stick Important Pages to the Top
 Plugin URI: https://revelry.dev/plugins/sip
@@ -14,9 +14,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /**
  * Avoids code execution if WordPress is not loaded
  */
-// 
-if (!defined('ABSPATH'))
-{
+//
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -27,37 +26,35 @@ class Revelry_SIP {
 	 */
 	static public function init() {
 
-		add_action( 'posts_orderby',       array( 'Revelry_SIP', 'setup' ), 10, 2 );
+		add_action( 'posts_orderby', array( 'Revelry_SIP', 'setup' ), 10, 2 );
 	}
 
-	static public function setup( $orderby, $query )  {
+	static public function setup( $orderby, $query ) {
 
 		global $pagenow;
 
 		$nonce = wp_create_nonce( 'revelry-sip' );
-		
+
 		if ( 'page' !== get_option( 'show_on_front' ) ) {
 			return;
 		}
 
-		if ( is_admin() && 'edit.php' == $pagenow && !isset($_GET['orderby'])) {
+		if ( is_admin() && 'edit.php' == $pagenow && ! isset( $_GET['orderby'] ) ) {
 
 			if ( wp_verify_nonce( $_REQUEST['revelry-sip'] ) ) {
 
+				$front = (int) get_option( 'page_on_front' );
+				$posts = (int) get_option( 'page_for_posts' );
+				$ids   = implode( ',', array_filter( array( $posts, $front ) ) );
 
-				$front = (int)get_option( 'page_on_front' );
-				$posts = (int)get_option( 'page_for_posts' );
-				$ids    = implode(',', array_filter(array($posts,$front)));
-
-				if ( empty($ids) ) {
+				if ( empty( $ids ) ) {
 					return $orderby;
 				}
 
 				global $wpdb;
-				$orderby = 'FIELD('. $wpdb->posts.'.ID,' .$ids. ') DESC, ' . $orderby;
+				$orderby = 'FIELD(' . $wpdb->posts . '.ID,' . $ids . ') DESC, ' . $orderby;
 				return $orderby;
 			}
-
 		}
 	}
 }
