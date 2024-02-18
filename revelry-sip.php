@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Stick Important Pages to the Top
+Plugin Name: Revelry Stick Important Pages
 Plugin URI: https://revelry.dev/plugins/sip
 Plugin Author: https://revelry.dev
 Description: Automatically Stick your Front Page and Blog Posts page to the top of the pages list.
