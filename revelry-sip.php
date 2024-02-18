@@ -22,11 +22,6 @@ if (!defined('ABSPATH'))
 
 class Revelry_SIP {
 
-	
-
-
-
-
 	/**
 	 * Setup the plugin on init
 	 */
@@ -46,8 +41,6 @@ class Revelry_SIP {
 		}
 
 		if ( is_admin() && 'edit.php' == $pagenow && !isset($_GET['orderby'])) {
-
-		
 
 			if ( wp_verify_nonce( $_REQUEST['revelry-sip'] ) ) {
 
