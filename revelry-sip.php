@@ -10,15 +10,6 @@ License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-
-/**
- * Avoids code execution if WordPress is not loaded
- */
-//
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 class Revelry_SIP {
 
 	/**
@@ -33,28 +24,23 @@ class Revelry_SIP {
 
 		global $pagenow;
 
-		$nonce = wp_create_nonce( 'revelry-sip' );
-
 		if ( 'page' !== get_option( 'show_on_front' ) ) {
 			return;
 		}
 
 		if ( is_admin() && 'edit.php' == $pagenow && ! isset( $_GET['orderby'] ) ) {
 
-			if ( wp_verify_nonce( $_REQUEST['revelry-sip'] ) ) {
-
 				$front = (int) get_option( 'page_on_front' );
 				$posts = (int) get_option( 'page_for_posts' );
 				$ids   = implode( ',', array_filter( array( $posts, $front ) ) );
 
-				if ( empty( $ids ) ) {
-					return $orderby;
-				}
+			if ( empty( $ids ) ) {
+				return $orderby;
+			}
 
 				global $wpdb;
 				$orderby = 'FIELD(' . $wpdb->posts . '.ID,' . $ids . ') DESC, ' . $orderby;
 				return $orderby;
-			}
 		}
 	}
 }
