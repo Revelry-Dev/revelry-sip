@@ -1,6 +1,6 @@
 
 === Stick Important Pages to the Top ===
-Plugin URI: https://revelry.dev/plugins/sip
+Plugin URI: https://revelry.dev/plugins/stick-important-pages/
 Version: 1.0
 Text Domain: revelry-sip
 Contributors: codente
