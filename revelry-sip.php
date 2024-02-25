@@ -28,7 +28,7 @@ class Revelry_SIP {
 			return;
 		}
 
-		if ( is_admin() && 'edit.php' == $pagenow && ! isset( $_GET['orderby'] ) ) {
+		if ( is_admin() && 'edit.php' === $pagenow && ! isset( $_GET['orderby'] ) ) {
 
 				$front = (int) get_option( 'page_on_front' );
 				$posts = (int) get_option( 'page_for_posts' );

@@ -4,7 +4,7 @@ Plugin URI: https://revelry.dev/plugins/stick-important-pages/
 Version: 1.0
 Text Domain: revelry-sip
 Contributors: codente
-Tags: Pages
+Tags: pages
 Requires at least: 4.7
 Tested up to: 6.5
 Stable Tag: 1.0
@@ -33,8 +33,7 @@ There is not as the plugin automatically re-orders upon activation.
 
 == Screenshots ==
 
-[ more here ]
-
+1. Example of  WP Admin Pages list after activation
 
 == Changelog ==
 
