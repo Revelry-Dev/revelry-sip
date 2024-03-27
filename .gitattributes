@@ -1,6 +1,7 @@
 # Dot-files
 .gitattributes export-ignore
 .gitignore export-ignore
+.distignore export-ignore
 
 
 # Other Files
