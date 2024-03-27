@@ -1,6 +1,0 @@
-- name: WordPress version checker
-
-
-              
-  uses: skaut/wordpress-version-checker@v2.0.0
-
