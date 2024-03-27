@@ -1,1 +1,10 @@
+# Ignore all .DS_Store files...
+.DS_Store
 
+# Dot-files
+.gitattributes export-ignore
+.gitignore export-ignore
+
+
+# Other Files
+phpcs.xml export-ignore
