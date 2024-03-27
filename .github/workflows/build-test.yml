@@ -14,12 +14,12 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Copy the plugin files to the plugin check folder, excluding the files on .distignore.
-      run: rsync -rc --exclude-from="$GITHUB_WORKSPACE/.distignore" "$GITHUB_WORKSPACE/" plugin-check/  --delete --delete-excluded
+      run: rsync -rc --exclude-from="$GITHUB_WORKSPACE/.distignore" "$GITHUB_WORKSPACE/" revelry-sip/  --delete --delete-excluded
 
     - name: Run plugin check
       uses: swissspidy/wp-plugin-check-action@v1
       with:
         exclude-directories: '.github'
-        build-dir: 'plugin-check'
+        build-dir: 'revelry-sip'
    
 
