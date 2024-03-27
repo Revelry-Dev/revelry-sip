@@ -13,8 +13,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Copy the plugin files to the plugin check folder, excluding the files on .distignore.
+      run: rsync -rc --exclude-from="$GITHUB_WORKSPACE/.distignore" "$GITHUB_WORKSPACE/" translation-tools/ --delete --delete-excluded
+
     - name: Run plugin check
       uses: swissspidy/wp-plugin-check-action@v1
       with:
         exclude-directories: '.github'
    
+
